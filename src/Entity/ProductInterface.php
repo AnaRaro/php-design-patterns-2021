@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-final class ProductInterface
-{
+use Money\Money;
 
+interface ProductInterface
+{
+    public function getName(): string;
+
+    public function getRetailPrice(): Money;
 }

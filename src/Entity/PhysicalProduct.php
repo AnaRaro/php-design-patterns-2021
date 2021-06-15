@@ -4,7 +4,28 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-final class PhysicalProduct
+use Money\Money;
+
+final class PhysicalProduct implements ProductInterface
 {
 
+    private string $name;
+    private Money $retailPrice;
+
+    public function __construct(string $name, Money $retailPrice)
+    {
+        $this->name = $name;
+        $this->retailPrice = $retailPrice;
+    }
+
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getRetailPrice(): Money
+    {
+        return $this->retailPrice;
+    }
 }
